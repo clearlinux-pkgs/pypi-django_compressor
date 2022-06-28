@@ -4,7 +4,7 @@
 #
 Name     : pypi-django_compressor
 Version  : 4.0
-Release  : 62
+Release  : 63
 URL      : https://files.pythonhosted.org/packages/f1/c4/0e90d34014a5027365f6448067b84a3bb7558ed7daa0d7fd72a3708e2922/django_compressor-4.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/f1/c4/0e90d34014a5027365f6448067b84a3bb7558ed7daa0d7fd72a3708e2922/django_compressor-4.0.tar.gz
 Summary  : Compresses linked and inline JavaScript or CSS into single cached files.
@@ -71,7 +71,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1656374042
+export SOURCE_DATE_EPOCH=1656407730
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
