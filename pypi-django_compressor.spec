@@ -4,7 +4,7 @@
 #
 Name     : pypi-django_compressor
 Version  : 4.1
-Release  : 69
+Release  : 70
 URL      : https://files.pythonhosted.org/packages/0d/77/14964c8e122cfd91bc4f30413f6850a42c08404118683080a1ccc2f10645/django_compressor-4.1.tar.gz
 Source0  : https://files.pythonhosted.org/packages/0d/77/14964c8e122cfd91bc4f30413f6850a42c08404118683080a1ccc2f10645/django_compressor-4.1.tar.gz
 Summary  : Compresses linked and inline JavaScript or CSS into single cached files.
@@ -22,6 +22,9 @@ BuildRequires : pypi-pluggy
 BuildRequires : pypi-pytest
 BuildRequires : pypi-tox
 BuildRequires : pypi-virtualenv
+# Suppress stripping binaries
+%define __strip /bin/true
+%define debug_package %{nil}
 
 %description
 Django Compressor
@@ -71,15 +74,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1659647332
+export SOURCE_DATE_EPOCH=1672268442
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=auto "
-export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
-export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
-export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=auto "
+export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
 export MAKEFLAGS=%{?_smp_mflags}
 pypi-dep-fix.py . rjsmin
 pypi-dep-fix.py . rcssmin
@@ -100,7 +103,7 @@ popd
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/pypi-django_compressor
-cp %{_builddir}/django_compressor-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/pypi-django_compressor/43e52baa77fbcf8d1301aa7df870f1d1a56b4075
+cp %{_builddir}/django_compressor-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/pypi-django_compressor/43e52baa77fbcf8d1301aa7df870f1d1a56b4075 || :
 python3 -tt setup.py build  install --root=%{buildroot}
 pypi-dep-fix.py %{buildroot} rjsmin
 pypi-dep-fix.py %{buildroot} rcssmin
