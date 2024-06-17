@@ -1,5 +1,5 @@
 PKG_NAME := pypi-django_compressor
-URL = https://files.pythonhosted.org/packages/1c/7d/8b878b082d7aca3f3d76da1743754d2a812571d0ee2cccbb6ee543f05843/django_compressor-4.4.tar.gz
+URL = https://files.pythonhosted.org/packages/c5/ae/fa1980e359158f6f03aa601656633e07b22d19e52ac7e110d26ea502040c/django_compressor-4.5.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
